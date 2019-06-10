@@ -28,45 +28,31 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="container">
-          <div className="row">
+        <div>
             <Form handleAdd={(e) => this.handleAdd(e)} />
             <TaskList todos={this.state.todos} handleDelete={(i) => this.handleDelete(i)} />
-          </div>
         </div>
-        <Materialize />
-      </div>
     );
   }
 }
 
 const Form = (props) =>
-  <div
-    className="input-field col s6"
-  >
     <form
       onSubmit={e => props.handleAdd(e)}
-      className="input-field"
     >
       <input
-        id="addtext"
         name="text"
         type="text"
-        className="autocomplete"
       />
       <label
         htmlFor="addtext"
-        className="active"
       >
         Task Add
       </label>
     </form>
-  </div>
 
 const TaskList = (props) =>
-  <div className="col s12">
-    <ul className="collection">
+    <ul>
       {props.todos.map((todo, i) =>
         <TaskView
           key={todo.title}
@@ -75,34 +61,19 @@ const TaskList = (props) =>
         />
       )}
     </ul>
-  </div>
 
 const TaskView = (props) =>
-  <li
-    className="blue-grey-text text-darken-4 collection-item"
-  >
+  <li>
     <div>
       {props.todo.title} 
-      <a
+      <button
         onClick={props.handleDelete}
-        className="right secondary-content"
       >
-        <i
-          className="material-icons"
-        >
+        <i>
           delete
         </i>
-      </a>
+      </button>
     </div>
   </li>
-
-const Materialize = () =>
-  <div>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons' />
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css' />
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script>
-  </div>
-
 
 export default App;
