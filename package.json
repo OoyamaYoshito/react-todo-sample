@@ -1,6 +1,7 @@
 {
   "name": "react-todo-sample",
   "version": "0.1.0",
+  "homepage": "https://ooyamayoshito.github.io/react-todo-sample/",
   "private": true,
   "dependencies": {
     "gh-pages": "^2.0.1",
@@ -13,7 +14,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "npm start && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
